@@ -1,0 +1,9 @@
+## 常用命令和配置整理
+- 常用命令记录
+  - shell/command.md
+- neovim配置文件
+  - config/init.vim
+- 各种快捷键
+  - keys
+- 常用工具记录
+  - tools
