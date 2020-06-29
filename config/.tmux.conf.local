@@ -280,7 +280,7 @@ tmux_conf_copy_to_os_clipboard=false
 #set -g history-limit 10000
 
 # start with mouse mode enabled
-#set -g mouse on
+set -g mouse on
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
@@ -291,7 +291,7 @@ tmux_conf_copy_to_os_clipboard=false
 # set -gu prefix2
 # unbind C-a
 unbind C-b
-# set -g prefix C-a
+set -g prefix C-a
 bind a send-prefix
 
 
