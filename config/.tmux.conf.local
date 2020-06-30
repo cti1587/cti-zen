@@ -281,6 +281,10 @@ tmux_conf_copy_to_os_clipboard=false
 
 # start with mouse mode enabled
 set -g mouse on
+setw -g mouse-resize-pane on
+setw -g mouse-select-pane on
+setw -g mouse-select-window on
+setw -g mode-mouse on
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
