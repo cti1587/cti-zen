@@ -2,8 +2,43 @@ kubectl命令补全
 source <(kubectl completion bash)
 echo "source <(kubectl completion bash)" >> ~/.bashrc
 
-进程后台运行
+# 磁盘空间
+ncdu
+
+# 使用说明
+tldr 
+
+# 请求模拟
+httpie
+
+# 美观的diff
+diff-so-fancy
+
+# 容器信息
+portainer
+ctop
+lazydocker
+
+# 系统信息查看
+glances
+
+# 模糊搜索
+fzf
+
+# 跳转目录
+j && z
+
+# 强大的grep
+ripgrep
+
+# 强大的find
+fd
+
+# 进程后台运行
 nohup、screen、supervisor、disown pm2
+
+# curl
+curl -svk 'http://127.0.0.1/pabc2/ddd/n/dataset/?flt0_1=1300' -H Host:aaaa.abdo.com
 
 正则非
 （(?=p)、(?!p)、(?<=p)和(?<!p)）
@@ -277,7 +312,8 @@ rollback_version_list.text.readLines().collect{it}
 44K
 test.sh
 
-
+# 导入Jenkins config.xml
+java -jar jenkins-cli.jar -s https://127.0.0.1:8080/ -webSocket -auth username:token  create-job new-job < config.xml
 
 磁盘性能测试
 yum install epel-release
