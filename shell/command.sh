@@ -37,6 +37,9 @@ fd
 # 进程后台运行
 nohup、screen、supervisor、disown pm2
 
+# 证书验证
+for i in `cat domain.txt ` ;do curl -o /dev/null -m 10 --connect-timeout 10 -svIL $i 2>&1|grep  "expire date:"|sed 's/*\s+expire date:\s+//' ;done
+
 # curl
 curl -svk 'http://127.0.0.1/pabc2/ddd/n/dataset/?flt0_1=1300' -H Host:aaaa.abdo.com
 
@@ -494,4 +497,7 @@ x\{m,n\} 重复字符x，至少m次，不多于n次，如：/0\{5,10\}/匹配5~1
 
 # 统计指定天数的文件中，所有IP的tcp_ttr、request_time平均值
 find -name "access.log.gz" | grep -E "12|13|14" | xargs -I {} zcat {} | awk '$13=="/nb/ping.txt" {print $13,$7,$16,$NF}' | awk '{ip_sum[$4]++ {tcp_rtt[$4]+=$2 request_time[$4]+=$3}END {for (i in ip_sum) print "tcp_rtt(ms): "tcp_rtt[i]/ip_sum[i]/1000,"request_time(ms): "request_time[i]/ip_sum[i],i,"ip_count: "ip_sum[i]} ' OFS="\t"
+# ip_sum[$4]++ 总共行数
+# tcp_rtt[$4]+=$2 tcp 所有值相加
+# tcp_rtt[i]/ip_sum[i] 所有值相加之和处于总行数，得到平均值
 
