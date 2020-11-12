@@ -43,15 +43,22 @@ for i in `cat domain.txt ` ;do curl -o /dev/null -m 10 --connect-timeout 10 -svI
 # curl
 curl -svk 'http://127.0.0.1/pabc2/ddd/n/dataset/?flt0_1=1300' -H Host:aaaa.abdo.com
 
-正则非
+# 正则非
 （(?=p)、(?!p)、(?<=p)和(?<!p)）
 /^(?=.*hello)(?!.*world).*$/im.test(page)
 
-iptables日志输出调试 RAW链表
+# 正则反向引用
+([a-zA-Z])(?!\1)[a-zA-Z]\1
+
+# iptables日志输出调试 RAW链表
 iptables -t raw -A PREROUTING -p icmp -j TRACE
 iptables -t raw -A OUTPUT -p icmp -j TRACE
 
-批量查看证书状态
+# DROP掉1分钟之内超过3次的扫描请求
+iptables -I INPUT -p tcp --dport 22 -m state --state NEW -m recent --name SSH_RECENT --rcheck --seconds 60 --hitcount 3 -j DROP
+
+
+# 批量查看证书状态
 for i in `cat just.com.cn | awk '{print $1".just.com.cn"}'`;do echo $i; timeout 1 openssl s_client -servername $i -connect $i:443 2>/dev/null | openssl x509 -noout -dates ; echo "---------------------------------" ; done
 
 Json工具
