@@ -317,6 +317,8 @@ jenkins groovy
 
 rollback_version_list=("/bin/bash /opt/deploy_scripts/test.sh").execute()
 rollback_version_list.text.readLines().collect{it}
+# 字符串转列表 ['abc','123'] to [abc,123]
+Eval.me(es_cluster_list.text)
 
 [root@technology deploy_scripts]# /bin/bash test.sh 
 44K
